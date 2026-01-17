@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+   import React, { useState } from 'react';
 
 const SnapsvisorApp = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -14,7 +14,6 @@ const SnapsvisorApp = () => {
       emoji: '🌼',
       subtitle: '12 klassiska visor',
       colors: ['#FFD700', '#FFA500'],
-      decorEmoji: '🌻🌸🌼☀️',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'En liten fågel', lyrics: 'En liten fågel sjöng en gång\npå knoppen av en gren,\nhan sjöng sin bästa visa.\nDen visan sjunger jag för er,\noch vi sjunger alla:\nHelan går!\nSjung hopp faderallan lallan lej!' },
@@ -35,7 +34,6 @@ const SnapsvisorApp = () => {
       emoji: '🎓',
       subtitle: '12 studentvisor',
       colors: ['#007AFF', '#5AC8FA'],
-      decorEmoji: '🎓📚🎉🍾',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'Gaudeamus Igitur', lyrics: 'Gaudeamus igitur,\niuvenes dum sumus!\nPost iucundam iuventutem,\npost molestam senectutem,\nnos habebit humus,\nnos habebit humus!' },
@@ -56,7 +54,6 @@ const SnapsvisorApp = () => {
       emoji: '🦞',
       subtitle: '12 kräftvisor',
       colors: ['#FF3B30', '#FF9500'],
-      decorEmoji: '🦞🌙🎊🍻',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'Kräftdansen', lyrics: 'Måste vi upp och dansa kräftdans?\nJa, vi måste upp och dansa kräftdans!\nKnäppa med fingrarna,\nvifta med våra armar,\nhopp hopp hopp hopp kräftdans!' },
@@ -77,7 +74,6 @@ const SnapsvisorApp = () => {
       emoji: '🎄',
       subtitle: '12 julvisor',
       colors: ['#34C759', '#FF3B30'],
-      decorEmoji: '🎄⛄🎅❄️',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'Tomtegubben', lyrics: 'Nu är det jul igen,\noch nu är det jul igen,\noch julen varar väl till påska!\nNej, det gör den inte,\nnej, det gör den inte,\nmen lite grand så kan man lustia!' },
@@ -98,7 +94,6 @@ const SnapsvisorApp = () => {
       emoji: '🎂',
       subtitle: '12 födelsedagsvisor',
       colors: ['#FF2D55', '#AF52DE'],
-      decorEmoji: '🎂🎁🎈🎉',
       songs: [
         { title: 'Ja må hen leva', lyrics: 'Ja må hen/hon leva,\nja må hen/hon leva,\nja må hen/hon leva uti hundrade år!\nJavisst ska hen/hon leva,\njavisst ska hen/hon leva,\njavisst ska hen/hon leva uti hundrade år!' },
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
@@ -119,7 +114,6 @@ const SnapsvisorApp = () => {
       emoji: '💍',
       subtitle: '12 bröllopssånger',
       colors: ['#FFD700', '#FF2D55'],
-      decorEmoji: '💍💐👰🤵',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'För brudparet', lyrics: 'Vi skålar för bruden och brudgummen,\nmå lyckan följa er!\nVi önskar er all kärlek,\noch många lyckliga år!\nSkål!' },
@@ -140,7 +134,6 @@ const SnapsvisorApp = () => {
       emoji: '🐣',
       subtitle: '12 påskvisor',
       colors: ['#FFD700', '#34C759'],
-      decorEmoji: '🐣🌷🐰🌸',
       songs: [
         { title: 'Helan går', lyrics: 'Helan går!\nSjung hopp faderallan lallan lej,\nHelan går!\nSjung hopp faderallan lej.\nOch den som inte helan tar,\nhan heller inte halvan får.\nHelan går!\nSjung hopp faderallan lej!' },
         { title: 'Nu grönskar det', lyrics: 'Nu grönskar det,\noch blomstren de sprida sin doft.\nVåren är här,\noch påsken är kommen till slut!\nSkål!' },
@@ -165,7 +158,6 @@ const SnapsvisorApp = () => {
 
   const generatePrintVersion = () => {
     const name = eventName || selectedTheme.name;
-    const decorEmojis = selectedTheme.decorEmoji.split('');
     
     // Dela upp i 4 sånger per sida (3 sidor totalt)
     const page1Songs = selectedTheme.songs.slice(0, 4);
