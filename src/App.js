@@ -1,4 +1,4 @@
-   import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 const SnapsvisorApp = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -232,29 +232,42 @@ const SnapsvisorApp = () => {
   </div>
   
   <div class="no-print" style="padding: 40px; text-align: center; background: #F2F2F7; margin-top: 40px;">
-    <h3 style="color: #333; margin-bottom: 15px; font-size: 18px;">💡 Så här gör du:</h3>
+    <h3 style="color: #333; margin-bottom: 15px; font-size: 18px;">💡 Så här sparar du som PDF:</h3>
     <div style="color: #666; line-height: 2; font-size: 15px;">
-      <p>1. Tryck på knappen ovan ☝️</p>
-      <p>2. Välj <strong>"Spara som PDF"</strong> i utskriftsdialogrutan</p>
-      <p>3. Välj var du vill spara filen</p>
-      <p>4. Klart! Nu har du ett snyggt PDF-vishäfte med ${selectedTheme.songs.length} visor på 4 sidor! 🎉</p>
+      <p><strong>På iPhone/iPad:</strong></p>
+      <p>1. Tryck på dela-knappen <span style="font-size: 20px;">⎙</span> längst ner</p>
+      <p>2. Välj "Skriv ut"</p>
+      <p>3. Zooma in förhandsvisningen med två fingrar</p>
+      <p>4. Tryck på dela-knappen igen → "Spara till Filer"</p>
+      <br/>
+      <p><strong>På dator:</strong></p>
+      <p>1. Tryck på knappen ovan eller Ctrl+P (Cmd+P på Mac)</p>
+      <p>2. Välj "Spara som PDF" som skrivare</p>
+      <p>3. Klart! Nu har du ett snyggt vishäfte med ${selectedTheme.songs.length} visor på 4 sidor! 🎉</p>
     </div>
   </div>
 </body>
 </html>`;
 
-    // Skapa blob och ladda ner
-    const blob = new Blob([htmlContent], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${name.replace(/[^a-zA-Z0-9]/g, '_')}_snapsvisor.html`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    showToast('HTML-fil nedladdad! Öppna den och tryck på "Skriv ut" för att spara som PDF 🎉');
+    // Öppna i nytt fönster (fungerar på iOS)
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
+      showToast('Öppnat i nytt fönster! Tryck på dela-knappen och välj "Skriv ut" → "Spara som PDF" 📄');
+    } else {
+      // Fallback till nedladdning om popup blockeras
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${name.replace(/[^a-zA-Z0-9]/g, '_')}_snapsvisor.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('HTML-fil nedladdad! Öppna den och tryck på "Skriv ut" för att spara som PDF 🎉');
+    }
   };
 
   return (
